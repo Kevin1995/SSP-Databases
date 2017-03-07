@@ -1,0 +1,11 @@
+extends layout
+
+block content
+    h1 My List
+
+    a(href='/users/createListItem') Create a new to do createListItem
+
+    for lists, x in list
+      p 
+        small #{new Date(joke.date).toLocaleDateString()}
+      p #{lists.text}

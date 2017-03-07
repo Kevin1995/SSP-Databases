@@ -1,0 +1,17 @@
+extends layout
+
+block content
+    - var formMethod = '/users/newListItem'
+    - var listText = ''
+
+    if list
+      - var formMethod = '/users/newListItem'
+      - listText = list.list
+
+      form(method='POST', action='#{formMethod}')
+        label(for='theList') Enter your to do item
+          textarea(name='theList') #{listText}
+          if list
+            input(type='hidden', name='id', value='#{list.id}')
+          
+          input(type='submit', name='Add')
